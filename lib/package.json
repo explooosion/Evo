@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "babel-core": "^6.26.0",
+    "eslint-plugin-formatting": "0.0.4",
     "node-process-windows": "0.0.2",
     "ramda": "^0.25.0"
   }
