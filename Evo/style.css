@@ -1,0 +1,16 @@
+#main {
+    -webkit-app-region: drag;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('FormStart.png');
+    background-repeat: no-repeat;
+}
+
+button {
+    -webkit-app-region: no-drag;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
