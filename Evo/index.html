@@ -4,15 +4,53 @@
 <head>
   <meta charset="UTF-8">
   <title>Evo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
 </head>
 
 <body>
-  <h1>Hello Evo!</h1>
-  <!-- All of the Node.js APIs are available in this renderer process. -->
-  We are using Node.js
-  <script>document.write(process.versions.node)</script>, Chromium
-  <script>document.write(process.versions.chrome)</script>, and Electron
-  <script>document.write(process.versions.electron)</script>.
+
+  <div class="container pt-4">
+    <h1>Hello Evo!</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using Node.js
+    <script>document.write(process.versions.node)</script>, Chromium
+    <script>document.write(process.versions.chrome)</script>, and Electron
+    <script>document.write(process.versions.electron)</script>.
+    <hr>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">EvoPath</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pathEvo" readonly>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">GamePath</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pathGame" readonly>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <button type="button" class="btn btn-primary form-control" onclick="startProcess()">Start</button>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-primary form-control" onclick="replaceProcess()">Replace</button>
+      </div>
+      <div class="col-sm-6">
+        <button type="button" class="btn btn-primary form-control" onclick="recoveryProcess()">Recovery</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
 
   <script>
     // You can also require other files to run in this process
@@ -21,8 +59,20 @@
 
     var Evo = require('../lib/src/app.js');
     var evo = new Evo();
-    alert(evo.getGamePath());
+    document.getElementById('pathEvo').value = evo.getEvoPath();
+    document.getElementById('pathGame').value = evo.getGamePath();
 
+    function replaceProcess() {
+      evo.work();
+    }
+
+    function recoveryProcess() {
+      evo.recovery();
+    }
+
+    function startProcess() {
+
+    }
   </script>
 </body>
 
