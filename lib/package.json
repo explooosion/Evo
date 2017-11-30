@@ -2,12 +2,13 @@
   "name": "evo",
   "version": "1.1.1",
   "description": "This is a ElswordVoice remake project\r  + [ElswordVoice](https://github.com/explooosion/elswordvoice)\r  + [Download](https://els.robby570.tw/)",
-  "main": "index.js",
+  "main": "main.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "start": "node start.js"
+    "start": "node start.js",
+    "dev": "electron ."
   },
   "repository": {
     "type": "git",
@@ -28,10 +29,11 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
+    "electron": "^1.7.9",
     "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-formatting": "0.0.4"
+    "eslint-plugin-formatting": "0.0.4",
+    "eslint-plugin-import": "^2.8.0"
   },
   "dependencies": {
     "copy": "^0.3.1",
