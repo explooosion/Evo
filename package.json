@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "node ./lib/start.js",
-    "dev": "electron ."
+    "start": "electron .",
+    "test": "node ./lib/start.js"
   },
   "repository": {
     "type": "git",
