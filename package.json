@@ -2,12 +2,12 @@
   "name": "evo",
   "version": "1.1.1",
   "description": "This is a ElswordVoice remake project\r  + [ElswordVoice](https://github.com/explooosion/elswordvoice)\r  + [Download](https://els.robby570.tw/)",
-  "main": "main.js",
+  "main": "./Evo/main.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "start": "node start.js",
+    "start": "node ./lib/start.js",
     "dev": "electron ."
   },
   "repository": {
