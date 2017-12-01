@@ -28,7 +28,7 @@ function createWindow() {
 
   if (externalDisplay) {
     x = externalDisplay.size.width - windowW * 0.4;
-    y = externalDisplay.size.height - windowH * 1.5;
+    y = externalDisplay.size.height - windowH * 1.8;
   } else {
     x = window;
     y = windowH;
