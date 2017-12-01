@@ -5,5 +5,5 @@ package-lock.json
 /evo-win32-ia32
 /installer
 
-# lib
-/lib/dist
+# dist
+/Evo/dist
