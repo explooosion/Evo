@@ -8,11 +8,6 @@
     background-repeat: no-repeat;
 }
 
-input {
-    -webkit-app-region: no-drag;
-    color: #f00;
-}
-
 button {
     -webkit-app-region: no-drag;
     position: absolute;
