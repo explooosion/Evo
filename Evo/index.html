@@ -15,34 +15,29 @@
 <body>
 
   <div id="main">
-    <button type="button" class="ts primary button" onclick="startProcess()">Start</button>
-    <div id="status" class="ts label">
+    <button type="button" class="ts primary button" onclick="run()">Event</button>
+    <div class="ts label">
       <i class="gift icon"></i> 狀態
     </div>
-    <input type="text" id="pathGame" value="" />
-    <input type="text" id="pathEvo" value="" />
   </div>
 
   <script>
-
     const Evo = require('../lib/dist/app.js');
     const evo = new Evo();
 
-    document.getElementById('pathGame').value = evo.getGamePath();
-    document.getElementById('pathEvo').value = evo.getEvoPath();
+    let btn = document.querySelector('.button');
+    let label = document.querySelector('.label');
 
     function handle() {
       setTimeout(() => {
         let gt = evo.getStatus();
-        document.getElementById('status').innerText = gt;
-        console.log(gt);
+        label.innerText = gt;
+        btn.disabled = true;
         handle();
       }, 800);
     }
 
-    function startProcess() {
-      // evo.replace();
-      // evo.recovery();
+    function run() {
       evo.work();
       handle();
     }
