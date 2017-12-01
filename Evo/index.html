@@ -5,15 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Evo</title>
-  <link rel="stylesheet" href="./tocas/tocas.css">
   <link rel="stylesheet" href="./style.css">
-  <script src="./tocas/tocas.js"></script>
+  <!-- Tocas UI：CSS 與元件 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+  <!-- Tocas JS：模塊與 JavaScript 函式 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
 </head>
 
 <body>
 
   <div id="main">
     <button type="button" class="ts primary button" onclick="startProcess()">Start</button>
+    <div id="status" class="ts label">
+      <i class="gift icon"></i> 狀態
+    </div>
   </div>
 
   <script>
@@ -23,10 +28,20 @@
     const Evo = require('../lib/src/app.js');
     const evo = new Evo();
 
+    function handle() {
+      setTimeout(() => {
+        let gt = evo.getStatus();
+        document.getElementById('status').innerText = gt;
+        console.log(gt);
+        handle();
+      }, 800);
+    }
+
     function startProcess() {
       // evo.replace();
-      evo.recovery();
-      // evo.work();
+      // evo.recovery();
+      evo.work();
+      handle();
     }
   </script>
 </body>
