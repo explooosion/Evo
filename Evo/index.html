@@ -19,14 +19,17 @@
     <div id="status" class="ts label">
       <i class="gift icon"></i> 狀態
     </div>
+    <input type="text" id="pathGame" value="" />
+    <input type="text" id="pathEvo" value="" />
   </div>
 
   <script>
-    require('babel-core/register');
-    require('babel-polyfill');
 
-    const Evo = require('../lib/src/app.js');
+    const Evo = require('../lib/dist/app.js');
     const evo = new Evo();
+
+    document.getElementById('pathGame').value = evo.getGamePath();
+    document.getElementById('pathEvo').value = evo.getEvoPath();
 
     function handle() {
       setTimeout(() => {

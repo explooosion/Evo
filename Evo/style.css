@@ -8,18 +8,20 @@
     background-repeat: no-repeat;
 }
 
+input {
+    -webkit-app-region: no-drag;
+    color: #f00;
+}
+
 button {
     -webkit-app-region: no-drag;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 50%;
-    left: 50%;
+    top: 100px;
+    left: 50px;
 }
 
 #status {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 50%;
+    top: 20px;
+    right: 50px;
 }
