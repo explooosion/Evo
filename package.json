@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "electron .",
-    "test": "node ./lib/start.js"
+    "test": "node ./lib/start.js",
+    "dev": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "electron": "^1.7.9",
+    "electron-winstaller": "^2.6.3",
     "eslint": "^4.11.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-formatting": "0.0.4",
