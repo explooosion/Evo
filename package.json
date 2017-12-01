@@ -10,7 +10,7 @@
     "start": "electron .",
     "test": "node ./lib/start.js",
     "babel": "babel ./lib/src -d ./lib/dist",
-    "package": "electron-packager . Evo --platform=win32 --arch=ia32 --electron-version=1.7.9 --overwrite --ignore=node_modules --ignore=.gitignore --ignore=.vscode --ignore=elsword --ignore=installer --ignore=evo-win32-ia32",
+    "package": "electron-packager . Evo --platform=win32 --arch=ia32 --electron-version=1.7.9 --overwrite --ignore=node_modules --ignore=.gitignore --ignore=.vscode --ignore=installer --ignore=evo-win32-ia32",
     "grunt": "grunt"
   },
   "repository": {
