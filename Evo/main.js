@@ -7,15 +7,38 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
+
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow() {
   // Create the browser window.
+
+  let displays = electron.screen.getAllDisplays()
+  let externalDisplay = displays.find((display) => {
+    return display.bounds.x !== 0 || display.bounds.y !== 0
+  })
+
+  const windowW = 380,
+    windowH = 360;
+
+  let x, y;
+
+  if (externalDisplay) {
+    x = externalDisplay.size.width - windowW * 0.4;
+    y = externalDisplay.size.height - windowH * 1.5;
+  } else {
+    x = window;
+    y = windowH;
+  }
+
   mainWindow = new BrowserWindow({
-    width: 380,
-    height: 360,
+    x: x,
+    y: y,
+    width: windowW,
+    height: windowH,
     resizable: false,
     frame: false,
     transparent: true
