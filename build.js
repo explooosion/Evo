@@ -2,7 +2,7 @@ const electronInstaller = require('electron-winstaller');
 
 resultPromise = electronInstaller.createWindowsInstaller({
     appDirectory: './Evo/',
-    outputDirectory: './Build/',
+    outputDirectory: './',
     authors: 'Robby',
     exe: 'Evo.exe'
 });
