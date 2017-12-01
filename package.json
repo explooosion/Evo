@@ -1,6 +1,6 @@
 {
   "name": "evo",
-  "version": "1.1.2",
+  "version": "0.1.2",
   "description": "This is a ElswordVoice remake project\r  + [ElswordVoice](https://github.com/explooosion/elswordvoice)\r  + [Download](https://els.robby570.tw/)",
   "main": "./Evo/main.js",
   "directories": {
