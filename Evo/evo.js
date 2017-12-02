@@ -3,33 +3,57 @@ const Evo = require('./dist/app.js');
 const evo = new Evo();
 
 let status;
-const chooser = document.querySelector('#path');
+const gpath = document.querySelector('.gpath');
+const cpath = document.querySelector('.cpath');
 
 work();
 
-// addEventListener
-chooser.addEventListener('change', function (event) {
-    alert(event.target.files[0].path);
+// reset path
+gpath.addEventListener('change', function (event) {
+    evo.setGamePath(String(event.target.files[0].path).replace('/', '//') || '');
+    work();
+});
+
+cpath.addEventListener('change', function (event) {
+    evo.setCustomPath(String(event.target.files[0].path).replace('/', '//') || '');
     work();
 });
 
 
 function work() {
 
-    const src = evo.getGamePath();
+    const gp = evo.getGamePath();
+    const cp = evo.getCustomPath();
+
+    console.log(gp, cp);
+    let p = true;
 
     // Work Start
-    if (src !== '') {
+    if (gp === '') {
+        p = false;
         const i = Math.floor(Math.random() * 6) + 1;
         const not = new Notification('初始化設定', {
             icon: `https://unsplash.it/100/?random&i=${i}`,
             body: '請選擇遊戲路徑',
         });
         not.onclick = () => {
-            chooser.click()
+            gpath.click()
         }
+    }
 
-    } else {
+    if (cp === '') {
+        p = false;
+        const i = Math.floor(Math.random() * 6) + 1;
+        const not = new Notification('初始化設定', {
+            icon: `https://unsplash.it/100/?random&i=${i}`,
+            body: '請選擇自訂檔案路徑',
+        });
+        not.onclick = () => {
+            cpath.click()
+        }
+    }
+
+    if (p) {
         evo.work();
         workHandler();
     }
@@ -41,7 +65,6 @@ function workHandler() {
         const gt = evo.getStatus();
         if (status !== gt) {
             notification(gt);
-            chooser.click();
         }
         status = gt;
         workHandler();
