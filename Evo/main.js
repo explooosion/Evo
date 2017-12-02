@@ -7,8 +7,6 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
-
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -21,8 +19,8 @@ function createWindow() {
     return display.size.width !== 0 || display.size.height !== 0
   });
 
-  const windowW = 380;
-  const windowH = 360;
+  const windowW = 120;
+  const windowH = 170;
 
   let mx;
   let my;
@@ -64,6 +62,7 @@ function createWindow() {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
 }
 
 // This method will be called when Electron has finished
