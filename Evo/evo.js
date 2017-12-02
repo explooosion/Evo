@@ -25,7 +25,6 @@ function work() {
     const gp = evo.getGamePath();
     const cp = evo.getCustomPath();
 
-    console.log(gp, cp);
     let p = true;
 
     // Work Start
