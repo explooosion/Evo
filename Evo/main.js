@@ -16,27 +16,28 @@ let mainWindow
 function createWindow() {
   // Create the browser window.
 
-  let displays = electron.screen.getAllDisplays()
-  let externalDisplay = displays.find((display) => {
-    return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
+  const displays = electron.screen.getAllDisplays();
+  const externalDisplay = displays.find((display) => {
+    return display.size.width !== 0 || display.size.height !== 0
+  });
 
-  const windowW = 380,
-    windowH = 360;
+  const windowW = 380;
+  const windowH = 360;
 
-  let x, y;
+  let mx;
+  let my;
 
   if (externalDisplay) {
-    x = externalDisplay.size.width - windowW * 0.4;
-    y = externalDisplay.size.height - windowH * 1.8;
+    mx = externalDisplay.size.width - windowW;
+    my = externalDisplay.size.height - (windowH * 1.8);
   } else {
-    x = windowW;
-    y = windowH;
+    mx = windowW;
+    my = windowH;
   }
 
   mainWindow = new BrowserWindow({
-    x: x,
-    y: y,
+    x: mx,
+    y: my,
     width: windowW,
     height: windowH,
     resizable: false,
