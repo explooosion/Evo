@@ -7,45 +7,16 @@
   <title>Evo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
-  <link rel="stylesheet" href="./style.css">
+  <link rel=" stylesheet " href="./style.css">
 </head>
 
 <body>
+  <div class="main">
+    <input id="path" type="file" webkitdirectory />
+  </div>
 
-  <div class="main"></div>
-
-  <script>
-
-    const Evo = require('./dist/app.js');
-    const evo = new Evo();
-
-    let status;
-
-    // auto start
-    evo.work();
-    handle();
-
-    function handle() {
-      setTimeout(() => {
-        let gt = evo.getStatus();
-        if (status !== gt) {
-          notification(gt);
-        }
-        status = gt;
-        handle();
-      }, 800);
-    }
-
-
-    function notification(msg) {
-      let i = Math.floor(Math.random() * 6) + 1;
-      new Notification("工作通知", {
-        icon: `https://unsplash.it/100/?random&i=${i}`,
-        body: msg,
-      });
-    }
-    // window.open('./message.html', 'Message', 'width=' + 600 + ', height=' + 300 + ', top=' + 400 + ', left=' + 600);
-  </script>
+  <script src="./evo.js"></script>
 </body>
+
 
 </html>
