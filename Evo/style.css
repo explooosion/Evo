@@ -1,22 +1,10 @@
-#main {
+.main {
     -webkit-app-region: drag;
     overflow: hidden;
-    position: relative;
     width: 100vw;
     height: 100vh;
-    background-image: url('FormStart.png');
+    text-align: center;
+    background-image: url('form.png');
     background-repeat: no-repeat;
-}
-
-button {
-    -webkit-app-region: no-drag;
-    position: absolute;
-    top: 100px;
-    left: 200px;
-}
-
-.label {
-    position: absolute;
-    top: 60px;
-    left: 160px;
+    background-position: top center;
 }
