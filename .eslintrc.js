@@ -15,6 +15,7 @@ module.exports = {
         "no-console": "off",
         "no-empty": "off",
         "no-var": 0,
+        "no-alert": 0,
         "no-unused-vars": 0,
         "no-useless-constructor": 0,
         "padded-blocks": 0,
