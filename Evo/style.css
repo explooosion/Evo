@@ -8,3 +8,9 @@
     background-repeat: no-repeat;
     background-position: top center;
 }
+
+button,
+input {
+    display: none;
+    -webkit-app-region: no-drag;
+}
