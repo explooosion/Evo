@@ -10,6 +10,7 @@ work();
 // addEventListener
 chooser.addEventListener('change', function (event) {
     alert(event.target.files[0].path);
+    work();
 });
 
 
@@ -30,12 +31,12 @@ function work() {
 
     } else {
         evo.work();
-        handle();
+        workHandler();
     }
 }
 
 
-function handle() {
+function workHandler() {
     setTimeout(() => {
         const gt = evo.getStatus();
         if (status !== gt) {
@@ -43,7 +44,7 @@ function handle() {
             chooser.click();
         }
         status = gt;
-        handle();
+        workHandler();
     }, 800);
 }
 
