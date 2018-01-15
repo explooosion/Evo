@@ -1,6 +1,6 @@
 {
   "name": "evo",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "This is a ElswordVoice remake project\r  + [ElswordVoice](https://github.com/explooosion/elswordvoice)\r  + [Download](https://els.robby570.tw/)",
   "main": "./Evo/main.js",
   "directories": {
@@ -10,7 +10,7 @@
     "start": "electron .",
     "test": "node ./lib/start.js",
     "build": "babel ./lib/src -d ./Evo/dist",
-    "package": "electron-packager . Evo --platform=win32 --arch=ia32 --electron-version=1.7.9 --overwrite --ignore=node_modules --ignore=.gitignore --ignore=.vscode --ignore=installer --ignore=evo-win32-ia32 --ignore=lib",
+    "package": "electron-packager . Evo --platform=win32 --arch=ia32 --icon=Evo/icon.ico --prune=true --electron-version=1.7.9 --overwrite --ignore=node_modules --ignore=.gitignore --ignore=.vscode --ignore=installer --ignore=evo-win32-ia32 --ignore=lib",
     "grunt": "grunt"
   },
   "repository": {
