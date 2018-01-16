@@ -6,8 +6,13 @@ grunt.config.init({
         ia32: {
             appDirectory: 'Evo-win32-ia32',
             authors: 'Robby',
+            title: 'Evo',
             exe: 'Evo.exe',
             description: 'kom tool',
+            noMsi: true,
+            loadingGif: 'Evo/install.gif',
+            setupIcon: 'Evo/icon.ico',
+            icon: 'Evo/icon.ico',
         }
     }
 })
