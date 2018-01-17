@@ -62,7 +62,7 @@ function work() {
 function workHandler() {
     setTimeout(() => {
         const gt = evo.getStatus();
-        if (status !== gt) {
+        if (status !== gt && gt !== '') {
             notification(gt);
         }
         status = gt;
