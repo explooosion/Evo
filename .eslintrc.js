@@ -33,6 +33,9 @@ module.exports = {
         "arrow-parens": 0,
         "arrow-body-style": 0,
         "comma-dangle": 0,
-        "eol-last": 0
+        "eol-last": 0,
+        "default-case": 0,
+        "consistent-return": 0,
+        "no-useless-return": 0,
     }
 };
