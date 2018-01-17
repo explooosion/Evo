@@ -11,8 +11,8 @@ grunt.config.init({
             description: 'kom tool',
             noMsi: true,
             loadingGif: 'Evo/install.gif',
-            setupIcon: 'Evo/icon.ico',
-            icon: 'Evo/icon.ico',
+            setupIcon: 'Evo/app.ico',
+            icon: 'Evo/app.ico',
         }
     }
 })
