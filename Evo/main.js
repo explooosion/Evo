@@ -1,6 +1,3 @@
-const squirrel = require('electron-squirrel-startup')
-const ChildProcess = require('child_process')
-
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
@@ -9,6 +6,8 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
+
+const ChildProcess = require('child_process')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
