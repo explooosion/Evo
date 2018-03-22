@@ -7,8 +7,6 @@ This is a ElswordVoice remake project
 ## Download
 Get link here [Pre-alpha](https://drive.google.com/open?id=1rHdwivJ-DBSYaQthAAIKKUnByJmXlB4c)
   
-or you can following steps to clone it.
-  
 ## Clone
 ```bash
 git clone https://github.com/explooosion/Evo.git
