@@ -1,19 +1,27 @@
 const electron = require('electron')
+
+const {
+  app, Tray, Menu, BrowserWindow, dialog
+} = require('electron')
+
 // Module to control application life.
-const app = electron.app
+
 // Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
 
 const ChildProcess = require('child_process')
 
+// Utils
+const Envi = require('./util/envi')
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow() {
+
   // Create the browser window.
 
   const displays = electron.screen.getAllDisplays();
@@ -45,6 +53,11 @@ function createWindow() {
     transparent: true
   })
 
+  mainWindow.on('minimize', function (event) {
+    event.preventDefault();
+    mainWindow.hide();
+  });
+
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
@@ -58,12 +71,58 @@ function createWindow() {
   // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null
-  })
+  mainWindow.on('close', function (event) {
+    if (!app.isQuiting) {
+      event.preventDefault();
+      mainWindow.hide();
+    }
+    return false;
+  });
+
+  // Create Tray
+  let appIcon = null;
+  const iconPath = path.join(__dirname, 'app.ico');
+
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Evo',
+      icon: path.join(__dirname, 'icon.png'),
+      click() {
+        mainWindow.show();
+      }
+    },
+    // {
+    //   label: 'Item2',
+    //   submenu: [
+    //     { label: 'submenu1' },
+    //     { label: 'submenu2' }
+    //   ]
+    // },
+    {
+      label: '環境設定',
+      click() {
+        Envi.setPath();
+      }
+    },
+    {
+      label: 'Debug',
+      click() {
+        mainWindow.show();
+        mainWindow.toggleDevTools();
+      }
+    },
+    {
+      label: '關閉',
+      click() {
+        mainWindow.removeAllListeners('close');
+        mainWindow.close();
+      }
+    }
+  ]);
+
+  appIcon = new Tray(iconPath);
+  appIcon.setToolTip('This is my application.');
+  appIcon.setContextMenu(contextMenu);
 
 }
 

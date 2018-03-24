@@ -6,58 +6,67 @@ let status;
 const gpath = document.querySelector('.gpath');
 const cpath = document.querySelector('.cpath');
 
-work();
+ini();
 
-// reset path
-gpath.addEventListener('change', function (event) {
-    evo.setGamePath(String(event.target.files[0].path).replace('/', '//') || '');
-    work();
-});
+// // reset path
+// gpath.addEventListener('change', function (event) {
+//     evo.setGamePath(String(event.target.files[0].path).replace('/', '//') || '');
+//     work();
+// });
 
-cpath.addEventListener('change', function (event) {
-    evo.setCustomPath(String(event.target.files[0].path).replace('/', '//') || '');
-    work();
-});
+// cpath.addEventListener('change', function (event) {
+//     evo.setCustomPath(String(event.target.files[0].path).replace('/', '//') || '');
+//     work();
+// });
 
+function ini() {
+
+    setTimeout(() => {
+        const gp = evo.getGamePath();
+        const cp = evo.getCustomPath();
+
+        if (gp === '' || cp === '') {
+            ini();
+        } else {
+            work();
+        }
+    }, 1000);
+}
 
 function work() {
 
-    const gp = evo.getGamePath();
-    const cp = evo.getCustomPath();
-
-    let p = true;
+    const p = true;
 
     // Work Start
-    if (gp === '') {
-        p = false;
-        const i = Math.floor(Math.random() * 6) + 1;
-        const not = new Notification('初始化設定', {
-            icon: `https://unsplash.it/100/?random&i=${i}`,
-            body: '請選擇遊戲路徑',
-        });
-        not.onclick = () => {
-            gpath.click()
-        }
-    }
+    // if (gp === '') {
+    //     p = false;
+    //     const i = Math.floor(Math.random() * 6) + 1;
+    //     const not = new Notification('初始化設定', {
+    //         icon: `https://unsplash.it/100/?random&i=${i}`,
+    //         body: '請選擇遊戲路徑',
+    //     });
+    //     not.onclick = () => {
+    //         gpath.click()
+    //     }
+    // }
 
-    if (cp === '') {
-        p = false;
-        const i = Math.floor(Math.random() * 6) + 1;
-        const not = new Notification('初始化設定', {
-            icon: `https://unsplash.it/100/?random&i=${i}`,
-            body: '請選擇自訂檔案路徑',
-        });
-        not.onclick = () => {
-            cpath.click()
-        }
-    }
+    // if (cp === '') {
+    //     p = false;
+    //     const i = Math.floor(Math.random() * 6) + 1;
+    //     const not = new Notification('初始化設定', {
+    //         icon: `https://unsplash.it/100/?random&i=${i}`,
+    //         body: '請選擇自訂檔案路徑',
+    //     });
+    //     not.onclick = () => {
+    //         cpath.click()
+    //     }
+    // }
 
     if (p) {
         evo.work();
         workHandler();
     }
 }
-
 
 function workHandler() {
     setTimeout(() => {
