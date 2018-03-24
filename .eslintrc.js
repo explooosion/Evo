@@ -14,10 +14,14 @@ module.exports = {
         "semi": 0,
         "no-console": "off",
         "no-empty": "off",
+        "no-new": 0,
         "no-var": 0,
         "no-alert": 0,
         "no-unused-vars": 0,
+        "no-useless-return": 0,
         "no-useless-constructor": 0,
+        "no-lonely-if": 0,
+        "new-cap": 0,
         "padded-blocks": 0,
         "indent": 0,
         "import/no-extraneous-dependencies": 0,
@@ -36,6 +40,6 @@ module.exports = {
         "eol-last": 0,
         "default-case": 0,
         "consistent-return": 0,
-        "no-useless-return": 0,
+        "max-len": 0,
     }
 };
